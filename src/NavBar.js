@@ -5,7 +5,7 @@ export default function NavBar() {
             <h2>React Components</h2> 
         </a>
         
-        <ul>
+        <ul className="nav-items">
             <li>
                 <a href="/quiz-app">Quiz App</a>
             </li>
