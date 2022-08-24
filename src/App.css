@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -8,6 +7,7 @@ body {
 }
 
 .nav {
+  font-family: 'Roboto', sans-serif;
   background-image: url("deepmind.jpg"); 
   background-color: #c39dce;
   background-size: cover;
@@ -32,7 +32,7 @@ body {
 }
 
 .nav-items a {
-  color: inherit;
+  color: #c39dce;
   text-decoration: none;
   background-color: white;
   padding: 10px;
