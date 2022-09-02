@@ -8,13 +8,16 @@ import { lightTheme, darkTheme } from './themes.js';
 import { StyledSwitch, PageContainer } from './Styled.jsx';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const LIGHT = 'light';
+  const DARK = 'dark';
+
+  const [theme, setTheme] = useState(LIGHT);
 
   const themeToggler = () => {
-    theme === "light" ? setTheme('dark') : setTheme('light')
+    theme === LIGHT ? setTheme(DARK) : setTheme(LIGHT)
   }
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === LIGHT ? lightTheme : darkTheme}>
       {/* Displays the NavBar components  */}
       <NavBar />
       <PageContainer fontFamily='Roboto, sans-serif'>
@@ -22,7 +25,7 @@ function App() {
         <StyledSwitch>
           <Switch 
             onChange={themeToggler}
-            checked={theme === 'dark'}
+            checked={theme === DARK}
             onColor='#234a5c'
             offColor='#cea6d9'
             checkedIcon= {false}
