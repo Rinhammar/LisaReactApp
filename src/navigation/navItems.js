@@ -1,4 +1,4 @@
-import Quiz from '../pages/Quiz';
+import Quiz from '../pages/QuizApp/Quiz';
 import Home from '../pages/Home';
 import Budget from '../pages/Budget';
 
