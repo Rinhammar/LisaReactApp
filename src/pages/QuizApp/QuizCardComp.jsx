@@ -1,8 +1,7 @@
-import questions from './questions.js';
 import { useState } from "react";
 import { QuizCard, QuestionSection, AnswerSection, StyledButton, ScoreSection } from '../../Styled';
 
-export default function QuizCardComp({cardWidth, cardMinHeight, buttonBackgroundColour, answerButtonWidth, endButtonWidth}){
+export default function QuizCardComp({questions, cardWidth, cardMinHeight, buttonBackgroundColour, answerButtonWidth, endButtonWidth}){
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
