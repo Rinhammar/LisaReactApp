@@ -1,6 +1,6 @@
 import Quiz from '../pages/QuizApp/Quiz';
 import Home from '../pages/Home';
-import Budget from '../pages/Budget';
+import Budget from '../pages/BudgetApp/Budget';
 
 const navItems = [
     { to: '/', element: <Home />, name: 'Home'},

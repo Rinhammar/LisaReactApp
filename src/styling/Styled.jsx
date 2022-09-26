@@ -108,4 +108,94 @@ export const StyledSwitch = styled.div`
       font: 16px;
   }
 `
+export const BudgetContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+export const StyledExpenseList = styled.ul`
+    margin: 0;
+    padding-inline-start: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0.01em solid #ebdbf0;
+    /* justify-content: space-between; */
+    width: 600px;
+`
+
+export const StyledExpenseItemList = styled.li`
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+    align-items: center;
+    padding: 5px 5px 5px 10px;
+    border: 0.01em solid #ebdbf0;
+`
+
+export const StyledCostDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`
+
+export const StyledCostSpan = styled.span`
+    border: 2px solid #cea6d9;
+    border-radius: 10px;
+    background-color: #cea6d9;
+    padding: 5px;
+    margin: 5px;
+`
+
+export const StyledDeleteIcon = styled.span`
+:hover{
+    cursor: pointer;
+}
+`
+
+export const StyledCurrencyBox = styled.div`
+    border: 2px solid #cea6d9;
+    /* background-color: #cea6d9; */
+    border-radius: 10px;
+    padding: 10px;
+`
+
+export const StyledBudgetContainer = styled.div`
+    width: 600px;
+    justify-content: space-between;
+    display: flex;
+`
+
+export const StyledFormButton = styled.button`
+    background-color: ${(props) => props.backgroundColour};
+    width: ${(props) => props.buttonWidth};
+    /* margin: 5px; */
+    color: ${(props) => props.theme.buttonTextColour};
+    /* font-weight: bold; */
+    /* font-size: 16px; */
+    border-radius: 15px;
+    padding: 10px;
+    border: 3.5px solid ${(props) => props.theme.buttonBorderColour};
+    cursor: pointer;
+    
+
+    &:hover {
+        background-color: ${(props) => props.theme.buttonHoverBackgroundColour};
+        color: ${(props) => props.theme.buttonHoverColour};
+    }
+
+    &:active {
+        background-color: ${(props) => props.theme.buttonActiveBackgroundColour};
+        color: ${(props) => props.theme.buttonActiveColour};
+    }
+`
+
+export const StyledFormDiv = styled.div`
+    justify-content: space-between;
+    display: flex;
+    width: 600px;
+    align-items: center;
+`
+
+
 export default PageHeader;

@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { QuizCard, QuestionSection, AnswerSection, StyledButton, ScoreSection } from '../../Styled';
+import { QuizCard, QuestionSection, AnswerSection, StyledButton, ScoreSection } from '../../styling/Styled';
 
 export default function QuizCardComp({questions, cardWidth, cardMinHeight, buttonBackgroundColour, answerButtonWidth, endButtonWidth}){
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
-
-    console.log(cardWidth);
 
 	// Function to handle the total score. If the value for "isCorrect" (questions.js) is true, it will add a point to the score. 
     const handleAnswerButtonClick = (isCorrect) => {
