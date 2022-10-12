@@ -6,8 +6,8 @@ import ExpensesTotal from './components/ExpensesTotal';
 import ExpenseList from './components/ExpenseList.jsx';
 import AddExpenseForm from './components/AddExpenseForm.jsx';
 import AppProvider from './context/AppContext';
-import GaugeChart from './components/Charts/GaugeChart.jsx';
-import BarChart from './components/Charts/BarChart.jsx';
+import GaugeChart from './components/charts/GaugeChart.jsx';
+import BarChart from './components/charts/BarChart.jsx';
 
 export default function Budget() {
     return (
