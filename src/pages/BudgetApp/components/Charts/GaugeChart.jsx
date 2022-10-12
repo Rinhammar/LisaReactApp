@@ -1,37 +1,35 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { select, arc, pie } from "d3";
-import useResizeObserver from "../utils/useResizeObserver";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
+import getTotalExpenses from "../../utils/getTotalExpenses";
 
 export default function GaugeChart() {
   const svgRef = useRef();
-  const wrapperRef = useRef();
-  const dimensions = useResizeObserver(wrapperRef);
   const { expenses, budget } = useContext(AppContext);
 
-  // Understand reduce
-  const totalExpenses = expenses.reduce((total, item) => {
-      return (total = total + item.cost)
-  }, 0);
+  const totalExpenses = getTotalExpenses(expenses);
   
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
+    const height = 150;
+    const width = 150;
     
     const remaining = budget - totalExpenses;
     const gaugeData = [ remaining, totalExpenses ];
-
-    if (!dimensions) return;
-
+    
     const arcGenerator = arc()
+    // Size of arc
       .innerRadius(75)
       .outerRadius(150);
 
     const pieGenerator = pie()
+    // Adjusts the start and end angle of the pie chart 
       .startAngle(-0.5 * Math.PI)
       .endAngle(0.5 * Math.PI)
       .sort(null);
 
+    // Instructions for the gaugeData to display properly into the chart
     const instructions = pieGenerator(gaugeData);
 
     svg
@@ -44,16 +42,15 @@ export default function GaugeChart() {
       .style('overflow', 'visible')
       .style(
         "transform",
-        `translate(${dimensions.width / 2}px, ${dimensions.height}px)`
+        `translate(${height}px, ${width}px)`
       )
       .attr("d", arcGenerator);
       
 
-    // draw the gauge
-  }, [budget, dimensions, totalExpenses]);
+  }, [budget, totalExpenses]); // If these values updates, the gauge will update
   
   return (
-    <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
+    <div style={{ marginBottom: "2rem" }}>
       <svg ref={svgRef}></svg>
     </div>
   );

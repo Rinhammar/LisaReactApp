@@ -5,7 +5,7 @@ import { StyledExpenseItemList, StyledCostDiv, StyledCostSpan, StyledDeleteIcon 
 
 export default function ExpenseItem(props){
     const { dispatch } = useContext(AppContext);
-
+    // Calls to delete the expense (fron AppContext). Matches the payload with the correct id.
     const handleDeleteExpense = () => {
         dispatch({
             type: 'DELETE_EXPENSE',

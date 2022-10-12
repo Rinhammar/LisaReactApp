@@ -1,33 +1,35 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import * as d3 from 'd3';
-import { AppContext } from "../context/AppContext";
-import useResizeObserver from '../utils/useResizeObserver';
-import { BarChartContainer } from '../../../styling/Styled';
+import { AppContext } from "../../context/AppContext";
+import getTotalExpenses from "../../utils/getTotalExpenses";
 
 export default function BarChart() {
-    const svgBandRef = useRef();
-    const wrapperRef = useRef();
-    const dimensions = useResizeObserver(wrapperRef);
-    const { expenses } = useContext(AppContext);
+  const svgBandRef = useRef();
+  const { expenses } = useContext(AppContext);
 
-    // const [data, setData] = useState(expenses);
+  // In order for the bars to update when adding and expense, we have to look at the total expenses. 
+  // The variable is added at the bottom of the useEffect in order to see when it updates.
+  const totalExpenses = getTotalExpenses(expenses);
+
+  const barChartData = expenses;
 
   useEffect(() => {
     const svg = d3.select(svgBandRef.current);
     const height = 300;
-    const width = 700;
+    const width = 600;
     
-    if (!dimensions) return;
 
     // Bar scales
     const scaleX = d3.scaleBand()
-      .domain(expenses.map((value) => value.name))
+      .domain(barChartData.map((value) => value.name))
       .range([0, width])
       .paddingInner([0.352]);
 
-    const max = d3.max(expenses, function(d){return d.cost})
+    const max = d3.max(barChartData, function(d){return d.cost})
 
+    // Colours for the bars
     const colours = ['#e07373','#eea545', '#e4ee57', '#7fc97f','#5ac4b5', '#387794', '#c36adb','#e45ca4', '#a32f2f', '#c49d4a'];
+    // Styling for the chart
     const toolDiv = d3.select('#chartArea')
                       .append('div')
                       .style('visibility', 'hidden')
@@ -81,24 +83,25 @@ export default function BarChart() {
     // Bars
     svg
     .selectAll('.bar')
-      .data(expenses)
+      .data(barChartData)
       .join('rect')
       .attr('class', 'bar')
       .style('transform', 'scaleY(-1)')
+      // Fills the bars with colours from the array
       .attr('fill', function (d, i) {
         return colours[i];
      })
+    //  Adds tooltip on hover that shows the name and cost of the expense
       .on('mouseover', (e,d) => {
-          console.log('event',e);
-          console.log('d',d);
-
           toolDiv.style('visibility', 'visible')
                  .text(` ${d.name}: ${d.cost} sek`)
       })
+      // Adjusts the location of the tooltip when the user moves their mouse over the bar (it stays in the same position relative to the mouse pointer)
       .on('mousemove', (e,d) =>{
           toolDiv.style('top', (e.pageY - 175) + 'px')
                  .style('left', (e.pageX + 25) + 'px')
       })
+      // Changes visibility to hidden when the mouse pointer leaves the bar
       .on('mouseout',()=>{
           toolDiv.style('visibility', 'hidden')
       })
@@ -109,14 +112,14 @@ export default function BarChart() {
       .duration(4000)
       .ease(d3.easeCircleInOut)
       .attr('height', (value) => height - scaleY(value.cost));
-  }, [expenses, dimensions]);
+  }, [barChartData, expenses, totalExpenses]);
+  
   return (
     <>
-      <div ref={wrapperRef} id='chartArea'>
-        {/* <h1>Bar Chart</h1> */}
+      <div id='chartArea'>
         <svg
               style={{
-                overflow: 'visible', width: 700, height: 300, marginBottom: 120
+                overflow: 'visible', width: 600, height: 300, marginBottom: 120
               }}
               ref={svgBandRef}
         >

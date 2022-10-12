@@ -9,6 +9,7 @@ export default function ExpenseList(){
     return(
         <>
             <StyledExpenseList>
+                {/* Maps over the expenses array and assigns id, name and cost from the array */}
                 {expenses.map(((expense) => (
                     <ExpenseItem id={expense.id} name={expense.name} cost={expense.cost} />
                 )))}

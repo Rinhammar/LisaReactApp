@@ -120,7 +120,6 @@ export const StyledExpenseList = styled.ul`
     white-space: nowrap;
     overflow: hidden;
     border: 0.01em solid #ebdbf0;
-    /* justify-content: space-between; */
     width: 600px;
 `
 
@@ -154,40 +153,18 @@ export const StyledDeleteIcon = styled.span`
 `
 
 export const StyledCurrencyBox = styled.div`
-    border: 2px solid #cea6d9;
-    /* background-color: #cea6d9; */
+    border: 3px solid #cea6d9;
     border-radius: 10px;
     padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
 `
 
 export const StyledBudgetContainer = styled.div`
     width: 600px;
     justify-content: space-between;
     display: flex;
-`
-
-export const StyledFormButton = styled.button`
-    background-color: ${(props) => props.backgroundColour};
-    width: ${(props) => props.buttonWidth};
-    /* margin: 5px; */
-    color: ${(props) => props.theme.buttonTextColour};
-    /* font-weight: bold; */
-    /* font-size: 16px; */
-    border-radius: 15px;
-    padding: 10px;
-    border: 3.5px solid ${(props) => props.theme.buttonBorderColour};
-    cursor: pointer;
-    
-
-    &:hover {
-        background-color: ${(props) => props.theme.buttonHoverBackgroundColour};
-        color: ${(props) => props.theme.buttonHoverColour};
-    }
-
-    &:active {
-        background-color: ${(props) => props.theme.buttonActiveBackgroundColour};
-        color: ${(props) => props.theme.buttonActiveColour};
-    }
 `
 
 export const StyledFormDiv = styled.div`
@@ -197,5 +174,10 @@ export const StyledFormDiv = styled.div`
     align-items: center;
 `
 
+export const StyledEditButton = styled(StyledButton)`
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+`
 
 export default PageHeader;

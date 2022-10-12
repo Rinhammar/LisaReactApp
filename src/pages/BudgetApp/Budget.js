@@ -6,8 +6,8 @@ import ExpensesTotal from './components/ExpensesTotal';
 import ExpenseList from './components/ExpenseList.jsx';
 import AddExpenseForm from './components/AddExpenseForm.jsx';
 import AppProvider from './context/AppContext';
-import GaugeChart from './components/GaugeChart.jsx';
-import BarChart from './components/BarChart.jsx';
+import GaugeChart from './components/Charts/GaugeChart.jsx';
+import BarChart from './components/Charts/BarChart.jsx';
 
 export default function Budget() {
     return (
@@ -21,7 +21,7 @@ export default function Budget() {
 					<RemainingBudget />
 					<ExpensesTotal />
 				</StyledBudgetContainer>
-				<div style={{paddingTop:"50px"}}>
+				<div style={{paddingTop:"75px"}}>
 					<BarChart />
 				</div>
 				<div style={{paddingTop:"25px"}}>

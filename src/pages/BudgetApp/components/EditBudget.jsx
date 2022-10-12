@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { StyledEditButton } from '../../../styling/Styled';
 
 export default function EditBudget(props){
+	// Takes props which were passed down from BudgetTotal
 	const [value, setValue] = useState(props.budget);
 	return (
 		<>
@@ -11,12 +13,12 @@ export default function EditBudget(props){
 				value={value}
 				onChange={(event) => setValue(event.target.value)}
 			/>
-			<button
+			<StyledEditButton
 				type='button'
 				onClick={() => props.handleSaveClick(value)}
 			>
 				Save
-			</button>
+			</StyledEditButton>
 		</>
 	);
 };
