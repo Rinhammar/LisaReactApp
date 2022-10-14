@@ -1,13 +1,13 @@
 import React from 'react';
-import { PageHeader, BudgetContainer, StyledBudgetContainer } from "../../styling/Styled.jsx";
+import { PageHeader, BudgetContainer, StyledBudgetContainer } from "../../styling/Styled";
 import BudgetTotal from './components/BudgetTotal';
 import RemainingBudget from './components/RemainingTotal';
 import ExpensesTotal from './components/ExpensesTotal';
-import ExpenseList from './components/ExpenseList.jsx';
-import AddExpenseForm from './components/AddExpenseForm.jsx';
+import ExpenseList from './components/ExpenseList';
+import AddExpenseForm from './components/AddExpenseForm';
 import AppProvider from './context/AppContext';
-import GaugeChart from './components/charts/GaugeChart.jsx';
-import BarChart from './components/charts/BarChart.jsx';
+import GaugeChart from './components/charts/GaugeChart';
+import BarChart from './components/charts/BarChart';
 
 export default function Budget() {
     return (

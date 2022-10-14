@@ -1,7 +1,7 @@
 import React, { useContext} from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
-import { StyledExpenseItemList, StyledCostDiv, StyledCostSpan, StyledDeleteIcon } from '../../../styling/Styled.jsx'
+import { StyledExpenseItemList, StyledCostDiv, StyledCostSpan, StyledDeleteIcon } from '../../../styling/Styled'
 
 export default function ExpenseItem(props){
     const { dispatch } = useContext(AppContext);

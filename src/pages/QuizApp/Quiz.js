@@ -1,6 +1,6 @@
-import PageHeader from "../../styling/Styled.jsx";
+import PageHeader from "../../styling/Styled";
 import { QuizContainer } from '../../styling/Styled';
-import QuizCardComp from './QuizCardComp.jsx';
+import QuizCardComp from './QuizCardComp';
 import questions from './questions.js';
 
 const cardWidth = '500px';

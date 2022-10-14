@@ -4,8 +4,8 @@ import NavBar from './navigation/NavBar';
 import Routing from './navigation/NavCompRouting';
 import Switch from 'react-switch';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from './styling/themes.js';
-import { StyledSwitch, PageContainer } from './styling/Styled.jsx';
+import { lightTheme, darkTheme } from './styling/themes';
+import { StyledSwitch, PageContainer } from './styling/Styled';
 
 function App() {
   const LIGHT = 'light';
