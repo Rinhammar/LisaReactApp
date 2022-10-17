@@ -1,6 +1,6 @@
-import PageHeader from "../../Styled.jsx";
-import { QuizContainer} from '../../Styled';
-import QuizCardComp from './QuizCardComp.jsx';
+import PageHeader from "../../styling/Styled";
+import { QuizContainer } from '../../styling/Styled';
+import QuizCardComp from './QuizCardComp';
 import questions from './questions.js';
 
 const cardWidth = '500px';
@@ -11,7 +11,7 @@ const endButtonWidth = '245px';
 
 export default function Quiz() {
     return (
-	<>
+	<div>
 		<PageHeader>Quiz App</PageHeader>
     		<QuizContainer>
 				<QuizCardComp
@@ -23,6 +23,6 @@ export default function Quiz() {
 					endButtonWidth={endButtonWidth} 
 				/>
     		</QuizContainer>
-	</>
+	</div>
 	);
 }

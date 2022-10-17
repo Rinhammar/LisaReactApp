@@ -108,4 +108,76 @@ export const StyledSwitch = styled.div`
       font: 16px;
   }
 `
+export const BudgetContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+export const StyledExpenseList = styled.ul`
+    margin: 0;
+    padding-inline-start: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0.01em solid #ebdbf0;
+    width: 600px;
+`
+
+export const StyledExpenseItemList = styled.li`
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+    align-items: center;
+    padding: 5px 5px 5px 10px;
+    border: 0.01em solid #ebdbf0;
+`
+
+export const StyledCostDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`
+
+export const StyledCostSpan = styled.span`
+    border: 2px solid #cea6d9;
+    border-radius: 10px;
+    background-color: #cea6d9;
+    padding: 5px;
+    margin: 5px;
+`
+
+export const StyledDeleteIcon = styled.span`
+:hover{
+    cursor: pointer;
+}
+`
+
+export const StyledCurrencyBox = styled.div`
+    border: 3px solid #cea6d9;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+`
+
+export const StyledBudgetContainer = styled.div`
+    width: 600px;
+    justify-content: space-between;
+    display: flex;
+`
+
+export const StyledFormDiv = styled.div`
+    justify-content: space-between;
+    display: flex;
+    width: 600px;
+    align-items: center;
+`
+
+export const StyledEditButton = styled(StyledButton)`
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+`
+
 export default PageHeader;
